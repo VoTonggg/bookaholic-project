@@ -1,12 +1,21 @@
 import mongoengine
 
-# mongodb://<dbuser>:<dbpassword>@ds141621.mlab.com:41621/bookproject
+# mongodb://<admin>:<admin1>@ds141671.mlab.com:41671/bookcompare-project
 
-host = 'ds141621.mlab.com'
-port = 41621
-db_name = 'bookproject'
-user_name = 'bookproject'
-password = 'admin123'
+host = 'ds141671.mlab.com'
+port = 41671
+db_name = 'bookcompare-project'
+user_name = 'admin'
+password = 'admin1'
 
 def connect():
     mongoengine.connect(db_name, host=host, port=port,username=user_name, password = password)
+
+def list2json(l):
+    import json
+    return [json.loads(item.to_json()) for item in l]
+
+
+def item2json(item):
+    import json
+    return json.loads(item.to_json())

@@ -1,0 +1,43 @@
+.h-75px {
+    height: 75px;
+}
+
+.font-lobster {
+    font-family: 'Lobster', cursive;
+}
+
+.font-gaegu {
+    font-family: 'Gaegu', cursive;
+}
+
+.h-1000px {
+    height: 1000px;
+}
+
+.background-image-signup {
+    background-image: url(../../static/image/background.jpg);
+    background-size: cover;
+}
+
+.h-500px {
+    height: 500px;
+}
+
+.w-350px {
+    width: 350px;
+}
+
+.h-100px {
+    height: 100px;
+}
+
+.h-50px {
+    height: 50px;
+}
+.h-100vh {
+    height: 100vh;
+}
+
+.mr-100px {
+    margin-right: 100px;
+}

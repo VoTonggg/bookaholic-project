@@ -3,7 +3,10 @@ from mongoengine import *
 # 1. Design database
 
 class Book(Document):
-    name = StringField()
-    link = StringField()
-    price = StringField()
-    img = StringField()
+    title = StringField()
+    linkBuy = StringField()
+    price_sale = IntField()
+    image = StringField()
+    author = StringField()
+    retailer = StringField()
+    category = StringField()

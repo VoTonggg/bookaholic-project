@@ -2,7 +2,6 @@ from urllib.request import urlopen, urlretrieve
 from bs4 import BeautifulSoup
 import pyexcel
 import sys
-from flask import *
 import mlab
 from models.book import Book
 
@@ -13,10 +12,15 @@ mlab.connect()
 
 #1.1 Create a connection
 
-a_list_of_dict = []
-for i in range(2,4):
+category = []
+author = []
+price_sale = []
+title = []
+linkBuy = []
+image = []
+for i in range(1,5):
 
-    url = "https://tiki.vn/bestsellers/sach-truyen-tieng-viet/c316?p=" + str(i)
+    url = "https://tiki.vn/bestsellers-month/sach-truyen-tieng-viet/c316?p=" + str(i)
     #1.2
     html_content = urlopen(url).read().decode('utf-8')
 
@@ -24,43 +28,40 @@ for i in range(2,4):
     # 2. Extract ROI (region of interest)
     soup = BeautifulSoup(html_content, "html.parser")
 
-    item_list = soup.find_all("p", "title")
-    title = []
-    link = []
-    for p in item_list:
-        title.append(p.a.contents[0].strip())
-        link.append(p.a['href'])
-    # print(link)
+    # extract Category
+    item_list = soup.find_all("div", "bestseller-cat-item")
+    for item in item_list:
+        data_category = item['data-category']
+        data_brand = item['data-brand']
+        data_price = item['data-price']
+        data_title = item['data-title']
+        i = data_category[30:]
+        for _ in range(len(i)):
+            if i[_] == "/":
+                i = i[:_]
+                break
+        category.append(i)
+        author.append(data_brand)
+        price_sale.append(data_price)
+        title.append(data_title)
 
-    item_list = soup.find_all("p", "price-sale")
-    price = []
-    for p in item_list:
-        price.append(p.contents[0].strip())
-    # print(price)
+    link_list = soup.find_all("p", "image")
+    for link in link_list:
+        a = link.a
+        img = link.a.img 
+        linkBuy_each = a['href']
+        linkBuy.append(linkBuy_each)
+        image_each = img['src']
+        image.append(image_each)
 
-    item_list = soup.find_all("img", "img-responsive")
-    print(item_list)
-    image = []
-    for img in item_list:
-        image.append(img["src"])
-    print(image)
-
-    for i in range(len(title)):
-        dic = {}
-        dic['title'] = title[i]
-        dic['link'] = link[i]
-        dic['price'] = price[i]
-        dic['image'] = image[i]
-        a_list_of_dict.append(dic)
-
-
-        new_book = Book(
-        name = dic['title'],
-        img = dic['image'],
-        link = dic['link'],
-        price = dic['price']
-        )
-
-        new_book.save()
-
-# pyexcel.save_as(records = a_list_of_dict, dest_file_name="tiki.xlsx")
+for i in range(len(title)):
+    new_book = Book(
+        title = title[i],
+        linkBuy = linkBuy[i],
+        price_sale = price_sale[i],
+        image = image[i],
+        author = author[i],
+        retailer = "Tiki",
+        category = category[i]
+    )
+    new_book.save()
