@@ -1,0 +1,90 @@
+<section class="main-block">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="styled-heading">
+                    <h3>What do you need to find?</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="find-place-img_wrap">
+                    <div class="grid">
+                        <figure class="effect-ruby">
+                            <img src="../../static/image/sachvanhoc.jpg" class="img-fluid" alt="img13" />
+                            <a href="{{ url_for('bookcategory',category = 'Sách văn học') }}"><figcaption>
+                                <h3>Sách Văn Học</h3>
+                                <p class="text-danger">{{ session['sachvanhoc'] }} books</p>
+                            </figcaption></a>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row find-img-align">
+                    <div class="col-md-12">
+                        <div class="find-place-img_wrap">
+                            <div class="grid">
+                                <figure class="effect-ruby">
+                                    <img src="../../static/image/sachkinhte.jpg" class="img-fluid" alt="img13" />
+                                    <a href="{{ url_for('bookcategory',category = 'Sách kinh tế') }}"><figcaption>
+                                        <h3>Sách Kinh Tế</h3>
+                                        <p class="text-danger">{{ session['sachkinhte'] }} books</p>
+                                    </figcaption></a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="find-place-img_wrap">
+                            <div class="grid">
+                                <figure class="effect-ruby">
+                                    <img src="../../static/image/sachngoaingu.jpg" class="img-fluid" alt="img13" />
+                                    <a href="{{ url_for('bookcategory',category = 'Sách ngoại ngữ') }}"><figcaption>
+                                        <h3>Sách Ngoại Ngữ</h3>
+                                        <p class="text-danger">{{ session['sachngoaingu'] }} books</p>
+                                    </figcaption></a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row find-img-align">
+                    <div class="col-md-12">
+                        <div class="find-place-img_wrap">
+                            <div class="grid">
+                                <figure class="effect-ruby">
+                                    <img src="../../static/image/truyentranh.jpg" class="img-fluid" alt="img13" />
+                                    <a href="{{ url_for('bookcategory',category = 'Truyện tranh, Manga, Comic') }}"><figcaption>
+                                        <h3>Truyện Tranh, Manga, Comic</h3>
+                                        <p class="text-danger">{{ session['mangacomics'] }} books</p>
+                                    </figcaption></a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="find-place-img_wrap">
+                            <div class="grid">
+                                <figure class="effect-ruby">
+                                    <img src="../../static/image/sachtonghop.jpg" class="img-fluid" alt="img13" />
+                                    <a href="{{ url_for('bookcategory',category = 'Sách tổng hợp') }}"><figcaption>
+                                        <h3>Sách Kiến Thức Tổng Hợp</h3>
+                                        <p class="text-danger">{{ session['sachtonghop'] }} books</p>
+                                    </figcaption></a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="codepixer">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Category</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="../static/css/linearicons.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/magnific-popup.css">
+    <link rel="stylesheet" href="../static/css/nice-select.css">					
+    <link rel="stylesheet" href="../static/css/animate.min.css">
+    <link rel="stylesheet" href="../static/css/owl.carousel.css">
+    <link rel="stylesheet" href="../static/css/main.1.css">
+    {% include 'meta-data.html' %}
+</head>
+<body>
+    {% include 'homepage/header.html' %}
+        <!-- start banner Area -->
+        <section class="slider d-flex align-items-center">
+            <!-- <img src="images/background.jpg" class="img-fluid" alt="#"> -->
+            <div class="container">
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div class="about-content col-lg-12">
+                        <h1 class="text-light font-weight-bold">
+                            Book Category				
+                        </h1>	
+                    </div>											
+                </div>
+            </div>
+        </section>   
+
+        <!-- End banner Area -->	
+        
+        <!-- Start post Area -->
+
+    <div class="container section-gap">
+        <div class="row d-flex">
+            <div class="col-md-3 sidebar">
+                <div class="single-slidebar" style="position: sticky; display: block; top:30px">
+                    <h4>Categories</h4>
+                    <div id="list-tab" role="tablist">
+                        <ul class="cat-list">
+                            <li><a class="justify-content-between d-flex" href="{{ url_for('bookcategory', category='Sách văn học' ) }}"><p>Sách văn học</p><span>{{ session['sachvanhoc'] }}</span></a></li>
+                            <li><a class="justify-content-between d-flex" href="{{ url_for('bookcategory', category='Sách kinh tế' ) }}"><p>Sách kinh tế</p><span>{{ session['sachkinhte'] }}</span></a></li>
+                            <li><a class="justify-content-between d-flex" href="{{ url_for('bookcategory', category='Sách ngoại ngữ' ) }}"><p>Sách ngoại ngữ</p><span>{{ session['sachngoaingu'] }}</span></a></li>
+                            <li><a class="justify-content-between d-flex" href="{{ url_for('bookcategory', category='Truyện tranh, Manga, Comic' ) }}"><p>Truyện tranh, Manga, Comic</p><span>{{ session['mangacomics'] }}</span></a></li>
+                            <li><a class="justify-content-between d-flex" href="{{ url_for('bookcategory', category='Sách tổng hợp' ) }}" ><p>Sách kiến thức tổng hợp</p><span>{{ session['sachtonghop'] }}</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 d-flex flex-wrap justify-content-between align-items-between">
+                {% for s in sach %}
+                    <div class="h-220px w-100 d-flex justify-content-between bg-sucess">
+                        <div class="col-md-4 d-flex justify-content-center align-items-center">
+                            <img src="{{ s.image }}" alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <p>{{ s.title }}</p>
+                            <p>Price: {{ s.price_sale }}</p>
+                            <p><a href="{{ s.linkBuy }}">Buy it from {{ s.retailer }} now</a></p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+    
+        <!-- End footer Area -->		
+
+        <script src="js/vendor/jquery-2.2.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>			
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+          <script src="js/easing.min.js"></script>			
+        <script src="js/hoverIntent.js"></script>
+        <script src="js/superfish.min.js"></script>	
+        <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>	
+        <script src="js/owl.carousel.min.js"></script>			
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/jquery.nice-select.min.js"></script>			
+        <script src="js/parallax.min.js"></script>		
+        <script src="js/mail-script.js"></script>	
+        <script src="js/main.js"></script>	
+        {% include 'js.html' %}
+    </body>
+</html>
+
+
+

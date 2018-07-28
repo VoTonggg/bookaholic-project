@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search</title>
+    {% include 'meta-data.html' %}
+</head>
+<body>
+    {% include 'homepage/header.html' %}
+    {% include 'homepage/slider.html' %}
+    <div class="mt-5 h-500px container">
+        <h1 class="text-center mb-5">We found {{ book_to_find|length }} result(s) from your search </h1>
+        {% for book in book_to_find %}
+            <div class="w-100 h-220px d-flex mb-5">
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                    <img src="{{ book.image }}">
+                </div>
+                <div class="col-md-8">
+                    <h3 class="mb-3">{{ book.title }}</h3>
+                    <p class="mb-3">Price: {{ book.price_sale }}</p>
+                    <p><a href="{{ book.linkBuy }}">Buy it from {{ book.retailer }} now</a></p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% include 'js.html' %}
+</body>
+</html>
